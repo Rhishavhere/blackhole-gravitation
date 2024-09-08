@@ -3,10 +3,10 @@ import math
 from config import *
 
 class BlackHole:
-    def __init__(self, x, y, radius):
+    def __init__(self, x, y):
         self.x = x
         self.y = y
-        self.radius = radius
+        self.radius = 150
 
     def update(self, mouse_pos):
         self.x, self.y = mouse_pos
