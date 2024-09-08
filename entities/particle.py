@@ -1,7 +1,10 @@
 import math
 import random
 import pygame
+
 from config import *
+from utils.color import get_color_based_on_force
+
 
 
 class Particle:
@@ -29,9 +32,9 @@ class Particle:
         # self.x += self.vx
         # self.y += self.vy
 
+        force = 1000 / (dist**1.5)  # Adjusted force calculation for stronger pull
 
         if dist > black_hole.radius:
-            force = 1000 / (dist**1.5)  # Adjusted force calculation for stronger pull
             angle = math.atan2(dy, dx)
             
             # Tangential component for orbital motion
@@ -48,12 +51,16 @@ class Particle:
         
         self.x += self.vx
         self.y += self.vy
+
+        self.force=force
+
+
+    def draw(self, screen, black_hole):
+        dist = math.sqrt((self.x - black_hole.x)**2 + (self.y - black_hole.y)**2)
+        color = get_color_based_on_force(self.force, 2.5)
         
-
-
-    def draw(self, screen):
         if 0 <= self.x < WIDTH and 0 <= self.y < HEIGHT:
-            pygame.draw.circle(screen, WHITE, (int(self.x), int(self.y)), 2)
+            pygame.draw.circle(screen, color, (int(self.x), int(self.y)), 2)
 
     # def is_off_screen(self):
     #     return self.x < -1000 or self.x > WIDTH + 1000 or self.y < -1000 or self.y > HEIGHT + 1000
