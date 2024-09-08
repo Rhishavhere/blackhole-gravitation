@@ -47,15 +47,9 @@ while running:
     screen.fill(BLACK)
 
     # Update and draw particles
-    # particles = [p for p in particles if not p.is_off_screen()]
     for particle in particles:
         particle.update(black_hole)
         particle.draw(screen, black_hole)
-
-    # Replenish particles
-    # while len(particles) < 10000:
-    #     new_particle = Particle(random.randint(0, WIDTH), random.randint(0, HEIGHT))
-    #     particles.append(new_particle)
 
     # Draw black hole
     black_hole.draw(screen)

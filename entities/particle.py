@@ -6,7 +6,6 @@ from config import *
 from utils.color import get_color_based_on_force
 
 
-
 class Particle:
     def __init__(self, x, y):
         self.x = x
@@ -19,19 +18,6 @@ class Particle:
         dy = black_hole.y - self.y
         dist = math.sqrt(dx**2 + dy**2)
         
-        # if dist > black_hole.radius:
-        #     force = 300 / (dist**1.4)  # Adjusted force calculation
-        #     self.vx += force * dx / dist #fx
-        #     self.vy += force * dy / dist #fy
-
-        # # Apply a rotation force to create an orbit-like effect
-        # rotation_force = 0.01 / (dist + 0.1)
-        # self.vx += rotation_force * -dy
-        # self.vy += rotation_force * dx
-        
-        # self.x += self.vx
-        # self.y += self.vy
-
         force = 1000 / (dist**1.5)  # Adjusted force calculation for stronger pull
 
         if dist > black_hole.radius:
@@ -61,6 +47,3 @@ class Particle:
         
         if 0 <= self.x < WIDTH and 0 <= self.y < HEIGHT:
             pygame.draw.circle(screen, color, (int(self.x), int(self.y)), 2)
-
-    # def is_off_screen(self):
-    #     return self.x < -1000 or self.x > WIDTH + 1000 or self.y < -1000 or self.y > HEIGHT + 1000
