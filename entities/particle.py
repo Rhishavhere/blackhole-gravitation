@@ -3,7 +3,7 @@ import random
 import pygame
 
 from config import *
-from utils.color import get_color_based_on_force
+from utils.color import *
 
 
 class Particle:
@@ -12,6 +12,8 @@ class Particle:
         self.y = y
         self.vx = random.uniform(-0.5, 0.5)
         self.vy = random.uniform(-0.5, 0.5)
+        self.speed = 0
+        self.max_speed = 8
 
     def update(self, black_hole):
         dx = black_hole.x - self.x
@@ -29,8 +31,11 @@ class Particle:
             self.vy += force * math.sin(angle) + tangential_force * math.cos(angle)
             
             # Limit velocity for stability
-            speed = math.sqrt(self.vx**2 + self.vy**2)
-            max_speed = 8
+            self.speed = math.sqrt(self.vx**2 + self.vy**2)
+            speed=self.speed
+
+            max_speed = self.max_speed
+
             if speed > max_speed:
                 self.vx = self.vx / speed * max_speed
                 self.vy = self.vy / speed * max_speed
@@ -39,11 +44,13 @@ class Particle:
         self.y += self.vy
 
         self.force=force
-
+        
 
     def draw(self, screen, black_hole):
+
         dist = math.sqrt((self.x - black_hole.x)**2 + (self.y - black_hole.y)**2)
-        color = get_color_based_on_force(self.force, 2.5)
+        color = get_color_based_on_force(self.force, 3)
+        color2 = get_color_based_on_speed(self.speed, self.max_speed)
         
         if 0 <= self.x < WIDTH and 0 <= self.y < HEIGHT:
-            pygame.draw.circle(screen, color, (int(self.x), int(self.y)), 2)
+            pygame.draw.circle(screen, color2, (int(self.x), int(self.y)), 2)
