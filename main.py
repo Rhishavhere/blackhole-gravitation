@@ -14,9 +14,20 @@ pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Black Hole Gravity Simulation")
 
+# Generate particles
+def generate_particle():
+    edge = random.choice(['top', 'bottom', 'left', 'right'])
+    if edge == 'top':
+        return Particle(random.randint(-WIDTH, WIDTH*2), random.randint(-HEIGHT, HEIGHT))
+    elif edge == 'bottom':
+        return Particle(random.randint(-WIDTH, WIDTH*2), random.randint(HEIGHT, HEIGHT*2))
+    elif edge == 'left':
+        return Particle(random.randint(-WIDTH, WIDTH), random.randint(-HEIGHT, HEIGHT*2))
+    else:  # right
+        return Particle(random.randint(WIDTH, WIDTH*2), random.randint(-HEIGHT, HEIGHT*2))
 
 # Create particles and black hole
-particles = [Particle(random.randint(0, WIDTH), random.randint(0, HEIGHT)) for _ in range(8000)]
+particles = [generate_particle() for _ in range(10000)]
 black_hole = BlackHole(WIDTH / 2, HEIGHT / 2)
 
 # Main game loop
@@ -42,7 +53,7 @@ while running:
         particle.draw(screen)
 
     # Replenish particles
-    # while len(particles) < 8000:
+    # while len(particles) < 10000:
     #     new_particle = Particle(random.randint(0, WIDTH), random.randint(0, HEIGHT))
     #     particles.append(new_particle)
 

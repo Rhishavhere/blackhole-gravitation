@@ -31,7 +31,7 @@ class Particle:
 
 
         if dist > black_hole.radius:
-            force = 7000 / (dist**2)  # Adjusted force calculation for stronger pull
+            force = 1000 / (dist**1.5)  # Adjusted force calculation for stronger pull
             angle = math.atan2(dy, dx)
             
             # Tangential component for orbital motion
@@ -41,7 +41,7 @@ class Particle:
             
             # Limit velocity for stability
             speed = math.sqrt(self.vx**2 + self.vy**2)
-            max_speed = 10
+            max_speed = 8
             if speed > max_speed:
                 self.vx = self.vx / speed * max_speed
                 self.vy = self.vy / speed * max_speed

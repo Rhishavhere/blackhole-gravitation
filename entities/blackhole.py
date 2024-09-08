@@ -6,7 +6,7 @@ class BlackHole:
     def __init__(self, x, y):
         self.x = x
         self.y = y
-        self.radius = 150
+        self.radius = 50
 
     def update(self, mouse_pos):
         self.x, self.y = mouse_pos
