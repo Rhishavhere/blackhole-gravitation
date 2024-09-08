@@ -1,3 +1,22 @@
+# Config Presets
+
+  force = 1000 / (dist**1.5)
+  max_speed = 8
+
+  force = 10000000 / (dist**4)
+  max_speed = 5
+
+  force = 500 / (dist**1.2)
+  max_speed = 8
+
+# In-Screen particles initialize
+
+```
+particles = [Particle(random.randint(0, WIDTH), random.randint(0, HEIGHT)) for _ in range(20000)]
+
+```
+
+
 # Prev Rotation Logic :
 
 ```
@@ -37,4 +56,5 @@ if dist > black_hole.radius:
 ```
 def is_off_screen(self):
         return self.x < -1000 or self.x > WIDTH + 1000 or self.y < -1000 or self.y > HEIGHT + 1000
+        
 ```
