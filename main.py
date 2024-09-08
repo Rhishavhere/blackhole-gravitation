@@ -11,14 +11,13 @@ from entities.particle import Particle
 pygame.init()
 
 # Set up the display
-WIDTH, HEIGHT = 800, 600
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Black Hole Gravity Simulation")
 
 
 # Create particles and black hole
-particles = [Particle(random.randint(0, WIDTH), random.randint(0, HEIGHT)) for _ in range(1000)]
-black_hole = BlackHole(WIDTH // 2, HEIGHT // 2, 150)
+particles = [Particle(random.randint(0, WIDTH), random.randint(0, HEIGHT)) for _ in range(8000)]
+black_hole = BlackHole(WIDTH / 2, HEIGHT / 2)
 
 # Main game loop
 running = True
@@ -37,15 +36,15 @@ while running:
     screen.fill(BLACK)
 
     # Update and draw particles
-    particles = [p for p in particles if not p.is_off_screen()]
+    # particles = [p for p in particles if not p.is_off_screen()]
     for particle in particles:
         particle.update(black_hole)
         particle.draw(screen)
 
     # Replenish particles
-    while len(particles) < 10000:
-        new_particle = Particle(random.randint(0, WIDTH), random.randint(0, HEIGHT))
-        particles.append(new_particle)
+    # while len(particles) < 8000:
+    #     new_particle = Particle(random.randint(0, WIDTH), random.randint(0, HEIGHT))
+    #     particles.append(new_particle)
 
     # Draw black hole
     black_hole.draw(screen)
@@ -54,7 +53,7 @@ while running:
     pygame.display.flip()
 
     # Cap the frame rate
-    clock.tick(60)
+    clock.tick(FPS)
 
 # Quit Pygame
 pygame.quit()
