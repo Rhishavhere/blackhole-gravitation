@@ -27,7 +27,7 @@ def generate_particle():
         return Particle(random.randint(WIDTH, WIDTH*2), random.randint(-HEIGHT, HEIGHT*2))
 
 # Create particles and black hole
-particles = [generate_particle() for _ in range(10000)]
+particles = [generate_particle() for _ in range(8000)]
 black_hole = BlackHole(WIDTH / 2, HEIGHT / 2)
 
 # Main game loop
