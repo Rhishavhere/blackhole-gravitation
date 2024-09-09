@@ -13,3 +13,6 @@ class BlackHole:
 
     def draw(self, screen):
         pygame.draw.circle(screen, BLACK, (int(self.x), int(self.y)), self.radius)
+
+
+# this is something
