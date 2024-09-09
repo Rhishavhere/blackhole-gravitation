@@ -45,7 +45,8 @@ This project simulates the gravitational pull of a black hole on nearby particle
 
 ## **Guidelines for Users**
 
-**Note:** Ensure you have Python installed on your system. If you encounter issues, consider using a virtual environment.
+**Note:** Ensure you have [Python](https://www.python.org/downloads/)
+ installed on your system. If you encounter issues, consider using a virtual environment.
 
 ### **Installation**
 To run the project locally:
