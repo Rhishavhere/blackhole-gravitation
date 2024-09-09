@@ -2,16 +2,31 @@
 
 This project simulates the gravitational pull of a black hole on nearby particles in real time, using **Python**.
 
+
+
+<table>
+  <td><img src="utils/default.png" width="200" height="100" /></td>
+  <td><img src="utils/velocity2.png" width="200" height="100" /></td>
+</table>
+<table>
+  <td><img src="utils/velocity.png" width="200" height="100" /></td>
+  <td><img src="utils/force.png" width="200" height="100" /></td>
+</table>
+
+
+
 ## **Features**
 
 
-- **Particle Simulation:** Particles are attracted to the black hole, with varying velocities according to the gravitational pull they experience.
+- **Particle Simulation:** Particles are attracted to the black hole, with varying  velocities according to the gravitational pull they experience.
 
 
 - **Dynamic Black Hole:** The black hole’s position can be controlled by mouse movements, creating a highly interactive experience.
 
 
-- **Color-Coding:** On active, Particles show a color range from **Red-Green-Blue** depending on factors like Magnitude of force, velocity, etc.
+- **Color-Coding:** On active, Particles show a color range from <span style="color:red">**Red**</span> to 
+  <span style="color:green">**Green**</span> to 
+  <span style="color:blue">**Blue**</span> depending on factors like Magnitude of force, velocity, etc.
 
 
 - **Particle Size Variation:** On Active, Each particle is randomly assigned a radius from an array provided by user.
@@ -35,7 +50,7 @@ This project simulates the gravitational pull of a black hole on nearby particle
 ### **Installation**
 To run the project locally:
 1. Clone the repository: `git clone https://github.com/Rhishavhere/blackhole-gravitation.git`
-2. Navigate to the project directory: `cd Black-Hole-Simulation`
+2. Navigate to the project directory: `cd blackhole-gravitation`
 3. Install required dependencies: `pip install pygame `
 4. Run the project: `python main.py`
 
