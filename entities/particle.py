@@ -2,7 +2,7 @@ import math
 import random
 import pygame
 
-from utils.config_object import *
+from config import *
 from utils.color import *
 
 

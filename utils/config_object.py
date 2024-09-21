@@ -1,24 +1,34 @@
 import configparser
+import ast
 
 config = configparser.ConfigParser()
 config.read("/config.txt")
 
-WIDTH = config.get('default', 'WIDTH')
-HEIGHT = config.get('default', 'HEIGHT')
-FPS = config.get('default', 'FPS')
+def parse_value(value):
+  try:
+    return ast.literal_eval(value)
+  except (ValueError, SyntaxError):
+    return value
 
-BLACK = config.get('default', 'BLACK').split(',')
-WHITE = config.get('default', 'WHITE').split(',')
-RED = config.get('default', 'RED').split(',')
+WIDTH = parse_value(config.get('DEFAULT', 'WIDTH'))
+HEIGHT = parse_value(config.get('DEFAULT', 'HEIGHT'))
+FPS = parse_value(config.get('DEFAULT', 'FPS'))
 
-PARTICLE_SIZE = config.get('default', 'PARTICLE_SIZE')
-BLACKHOLE_SIZE = config.get('default', 'BLACKHOLE_SIZE')
+BLACK = parse_value(config.get('DEFAULT', 'BLACK'))
+WHITE = parse_value(config.get('DEFAULT', 'WHITE'))
+RED = parse_value(config.get('DEFAULT', 'RED'))
 
-GRAVITATION_CONSTANT = config.get('default', 'GRAVITATION_CONSTANT')
-FIELD_VARIATION = config.get('default', 'FIELD_VARIATION')
-TANGENTIAL_FACTOR = config.get('default', 'TANGENTIAL_FACTOR')
-MAX_VELOCITY = config.get('default', 'MAX_VELOCITY')
+PARTICLE_SIZE = parse_value(config.get('DEFAULT', 'PARTICLE_SIZE'))
+BLACKHOLE_SIZE = parse_value(config.get('DEFAULT', 'BLACKHOLE_SIZE'))
 
-PARTICLE_DENSITY = config.get('default', 'PARTICLE_DENSITY')
+GRAVITATION_CONSTANT = parse_value(config.get('DEFAULT', 'GRAVITATION_CONSTANT'))
+FIELD_VARIATION = parse_value(config.get('DEFAULT', 'FIELD_VARIATION'))
+TANGENTIAL_FACTOR = parse_value(config.get('DEFAULT', 'TANGENTIAL_FACTOR'))
+MAX_VELOCITY = parse_value(config.get('DEFAULT', 'MAX_VELOCITY'))
 
-COLOR_VARIATION = config.get('default', 'COLOR_VARIATION')
+PARTICLE_DENSITY = parse_value(config.get('DEFAULT', 'PARTICLE_DENSITY'))
+
+COLOR_VARIATION = parse_value(config.get('DEFAULT', 'COLOR_VARIATION'))
+
+
+print(f"WIDTH: {WIDTH}, type: {type(WIDTH)}")
