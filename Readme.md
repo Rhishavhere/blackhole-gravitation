@@ -5,12 +5,12 @@ This project simulates the gravitational pull of a black hole on nearby particle
 
 
 <table>
-  <td><img src="public/utils/default.png" width="200" height="100" /></td>
-  <td><img src="public/utils/velocity2.png" width="200" height="100" /></td>
+  <td><img src="public/default.png" width="200" height="100" /></td>
+  <td><img src="public/velocity2.png" width="200" height="100" /></td>
 </table>
 <table>
-  <td><img src="public/utils/velocity.png" width="200" height="100" /></td>
-  <td><img src="public/utils/force.png" width="200" height="100" /></td>
+  <td><img src="public/velocity.png" width="200" height="100" /></td>
+  <td><img src="public/force.png" width="200" height="100" /></td>
 </table>
 
 
