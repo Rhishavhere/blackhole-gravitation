@@ -1,0 +1,3 @@
+/media/disk/CodeRepo/Blackhole-Sim/build/CMakeFiles/BlackholeSim.dir
+/media/disk/CodeRepo/Blackhole-Sim/build/CMakeFiles/edit_cache.dir
+/media/disk/CodeRepo/Blackhole-Sim/build/CMakeFiles/rebuild_cache.dir
